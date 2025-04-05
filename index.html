@@ -48,24 +48,37 @@
       white-space: nowrap;
       overflow: hidden;
       width: 100%;
+      height: 2.5em; /* Match the height of the text to the font size */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     #scrolling-companies p {
-      display: inline-block;
-      animation: flip-in 3s linear infinite;
-      padding-right: 50px; /* Space between company names */
+      opacity: 0;
+      position: absolute;
+      animation: flip-in 9s linear infinite;
+      margin: 0;
     }
     @keyframes flip-in {
       0% {
-        transform: rotateX(90deg);
         opacity: 0;
+        transform: rotateX(90deg);
       }
-      50% {
-        transform: rotateX(0deg);
+      10% {
         opacity: 1;
+        transform: rotateX(0deg);
+      }
+      30% {
+        opacity: 1;
+        transform: rotateX(0deg);
+      }
+      40% {
+        opacity: 0;
+        transform: rotateX(-90deg);
       }
       100% {
-        transform: rotateX(-90deg);
         opacity: 0;
+        transform: rotateX(-90deg);
       }
     }
     #scrolling-companies p:nth-child(1) {
