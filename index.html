@@ -4,23 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boycott Support Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
       color: #333;
+      text-align: center; /* Center align text */
     }
     nav {
       background-color: #d32f2f; /* Red background for the navbar */
       padding: 10px;
       color: white;
+      text-align: center;
     }
     nav a {
       color: white;
       margin-right: 15px;
       text-decoration: none;
+      font-size: 1.2em; /* Adjust font size for links */
     }
     nav a:hover {
       text-decoration: underline;
@@ -39,7 +43,6 @@
       font-size: 4em;
       font-weight: bold;
       margin: 0;
-      text-align: center;
     }
     #home h1 {
       font-size: 4em;
@@ -93,6 +96,35 @@
     #scrolling-companies p:nth-child(3) {
       animation-delay: 6s;
     }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3em; /* Adjust for smaller screens */
+      }
+      #scrolling-companies {
+        font-size: 3em; /* Adjust for smaller screens */
+        height: 3em;
+      }
+      nav a {
+        font-size: 1em; /* Adjust font size of navigation links */
+        margin-right: 10px; /* Reduce margin for smaller screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.5em; /* Further reduce font size on very small screens */
+      }
+      #scrolling-companies {
+        font-size: 2.5em; /* Adjust for very small screens */
+        height: 2.5em;
+      }
+      nav a {
+        font-size: 0.9em; /* Smaller font for nav links */
+        margin-right: 5px; /* Further reduce margin */
+      }
+    }
   </style>
 </head>
 <body>
@@ -127,20 +159,4 @@
     </div>
     <div id="impact" class="section">
       <h1>See Your Impact</h1>
-      <p>Track the collective impact of your choices, including the money you've redirected to ethical companies.</p>
-    </div>
-  </div>
-
-  <script>
-    function showSection(sectionId) {
-      // Hide all sections
-      const sections = document.querySelectorAll('.section');
-      sections.forEach(section => section.classList.remove('active'));
-
-      // Show the selected section
-      const activeSection = document.getElementById(sectionId);
-      activeSection.classList.add('active');
-    }
-  </script>
-</body>
-</html>
+      <
