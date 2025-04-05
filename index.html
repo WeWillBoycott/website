@@ -13,7 +13,7 @@
       color: #333;
     }
     nav {
-      background-color: #007bff;
+      background-color: #d32f2f; /* Red background for the navbar */
       padding: 10px;
       color: white;
     }
@@ -35,14 +35,39 @@
       display: block;
     }
     h1 {
-      color: #007bff;
+      color: #d32f2f; /* Red color for titles */
+    }
+    #home h1 {
+      font-size: 3em;
+      font-weight: bold;
+      color: black;
+    }
+    #scrolling-companies {
+      font-size: 2em;
+      color: red;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+    }
+    #scrolling-companies p {
+      display: inline-block;
+      animation: scroll-left 10s linear infinite;
+      padding-right: 50px; /* Space between company names */
+    }
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
   </style>
 </head>
 <body>
   <nav>
     <a href="#" onclick="showSection('home')">Home</a>
-    <a href="#" onclick="showSection('tracker')">Boycott Tracker</a>
+    <a href="#" onclick="showSection('calendar')">Calendar</a>
     <a href="#" onclick="showSection('alternatives')">Alternative Finder</a>
     <a href="#" onclick="showSection('community')">Community Hub</a>
     <a href="#" onclick="showSection('impact')">Impact Visualizer</a>
@@ -50,10 +75,12 @@
 
   <div class="content">
     <div id="home" class="section active">
-      <h1>Welcome to the Boycott Support Platform</h1>
-      <p>This platform helps you track boycotts, find ethical alternatives, and measure your impact.</p>
+      <h1>WE WILL BOYCOTT:</h1>
+      <div id="scrolling-companies">
+        <p>TESLA | AMAZON | NESTLE</p>
+      </div>
     </div>
-    <div id="tracker" class="section">
+    <div id="calendar" class="section">
       <h1>Track Your Boycotts</h1>
       <p>Monitor the boycotts you're participating in and see the progress over time.</p>
     </div>
