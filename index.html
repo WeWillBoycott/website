@@ -159,4 +159,20 @@
     </div>
     <div id="impact" class="section">
       <h1>See Your Impact</h1>
-      <
+      <p>Track the collective impact of your choices, including the money you've redirected to ethical companies.</p>
+    </div>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('active'));
+
+      // Show the selected section
+      const activeSection = document.getElementById(sectionId);
+      activeSection.classList.add('active');
+    }
+  </script>
+</body>
+</html>
