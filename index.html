@@ -51,16 +51,31 @@
     }
     #scrolling-companies p {
       display: inline-block;
-      animation: scroll-left 10s linear infinite;
+      animation: flip-in 3s linear infinite;
       padding-right: 50px; /* Space between company names */
     }
-    @keyframes scroll-left {
+    @keyframes flip-in {
       0% {
-        transform: translateX(100%);
+        transform: rotateX(90deg);
+        opacity: 0;
+      }
+      50% {
+        transform: rotateX(0deg);
+        opacity: 1;
       }
       100% {
-        transform: translateX(-100%);
+        transform: rotateX(-90deg);
+        opacity: 0;
       }
+    }
+    #scrolling-companies p:nth-child(1) {
+      animation-delay: 0s;
+    }
+    #scrolling-companies p:nth-child(2) {
+      animation-delay: 3s;
+    }
+    #scrolling-companies p:nth-child(3) {
+      animation-delay: 6s;
     }
   </style>
 </head>
@@ -77,7 +92,9 @@
     <div id="home" class="section active">
       <h1>WE WILL BOYCOTT:</h1>
       <div id="scrolling-companies">
-        <p>TESLA | AMAZON | NESTLE</p>
+        <p>TESLA</p>
+        <p>AMAZON</p>
+        <p>NESTLE</p>
       </div>
     </div>
     <div id="calendar" class="section">
