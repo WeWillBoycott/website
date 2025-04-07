@@ -107,7 +107,238 @@
       animation-delay: 6s;
     }
 
+    /* Calendar styles */
+    .calendar-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    
+    .calendar {
+      flex: 3;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-right: 20px;
+      padding: 20px;
+    }
+    
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .month-year {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    
+    .month-nav {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .month-nav button {
+      background: #f0f0f0;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .month-nav button:hover {
+      background: #e0e0e0;
+    }
+    
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+    
+    .weekday {
+      text-align: center;
+      font-weight: 700;
+      padding: 10px;
+      font-size: 16px;
+    }
+    
+    .day {
+      background: white;
+      border-radius: 5px;
+      padding: 10px;
+      min-height: 80px;
+      border: 1px solid #eaeaea;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .day-number {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    
+    .day:hover {
+      background: #f9f9f9;
+    }
+    
+    .day.inactive {
+      color: #ccc;
+      background: #f9f9f9;
+    }
+    
+    .event-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    
+    .event-tesla {
+      background-color: #e51c23;
+    }
+    
+    .event-amazon {
+      background-color: #ff9800;
+    }
+    
+    .day-events {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+    
+    .boycott-list {
+      flex: 1;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    
+    .boycott-list h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+    
+    .company-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .company-item:hover {
+      background: #f9f9f9;
+    }
+    
+    .company-color {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    
+    .company-name {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    
+    .tesla-color {
+      background-color: #e51c23;
+    }
+    
+    .amazon-color {
+      background-color: #ff9800;
+    }
+    
+    .event-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+      z-index: 1000;
+      min-width: 300px;
+    }
+    
+    .popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .popup-title {
+      font-size: 22px;
+      font-weight: 700;
+    }
+    
+    .close-popup {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .event-list {
+      margin-bottom: 15px;
+    }
+    
+    .event-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+
     /* Responsive design */
+    @media (max-width: 992px) {
+      .calendar-container {
+        flex-direction: column;
+      }
+      
+      .calendar {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      
+      .weekday, .day-number {
+        font-size: 14px;
+      }
+      
+      .day {
+        min-height: 60px;
+      }
+    }
+
     @media (max-width: 768px) {
       h1 {
         font-size: 48px;
@@ -125,6 +356,15 @@
       }
       p {
         font-size: 20px;
+      }
+      
+      .calendar-grid {
+        gap: 2px;
+      }
+      
+      .day {
+        padding: 5px;
+        min-height: 50px;
       }
     }
 
@@ -146,6 +386,18 @@
       p {
         font-size: 18px;
       }
+      
+      .content {
+        padding: 20px 10px;
+      }
+      
+      .month-year {
+        font-size: 22px;
+      }
+      
+      .calendar, .boycott-list {
+        padding: 10px;
+      }
     }
   </style>
 </head>
@@ -159,7 +411,7 @@
   </nav>
 
   <div class="content">
-    <div id="home" class="section active">
+    <div id="home" class="section">
       <h1>WE WILL BOYCOTT:</h1>
       <div id="scrolling-companies">
         <p>TESLA</p>
@@ -167,9 +419,34 @@
         <p>NESTLE</p>
       </div>
     </div>
-    <div id="calendar" class="section">
+    <div id="calendar" class="section active">
       <h1>Track Your Boycotts</h1>
-      <p>Monitor the boycotts you're participating in and see the progress over time.</p>
+      <div class="calendar-container">
+        <div class="calendar">
+          <div class="calendar-header">
+            <div class="month-year" id="currentMonthYear">April 2025</div>
+            <div class="month-nav">
+              <button id="prevMonth">&lt;</button>
+              <button id="nextMonth">&gt;</button>
+            </div>
+          </div>
+          <div class="calendar-grid" id="calendarGrid">
+            <!-- Weekday headers will be inserted here by JS -->
+            <!-- Calendar days will be inserted here by JS -->
+          </div>
+        </div>
+        <div class="boycott-list">
+          <h2>Active Boycotts</h2>
+          <div class="company-item">
+            <div class="company-color tesla-color"></div>
+            <div class="company-name">Tesla</div>
+          </div>
+          <div class="company-item">
+            <div class="company-color amazon-color"></div>
+            <div class="company-name">Amazon</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="alternatives" class="section">
       <h1>Find Ethical Alternatives</h1>
@@ -185,12 +462,212 @@
     </div>
   </div>
 
+  <div class="overlay" id="overlay"></div>
+  <div class="event-popup" id="eventPopup">
+    <div class="popup-header">
+      <div class="popup-title" id="popupDate">April 15, 2025</div>
+      <button class="close-popup" id="closePopup">&times;</button>
+    </div>
+    <div class="event-list" id="eventList">
+      <!-- Event items will be inserted here by JS -->
+    </div>
+  </div>
+
   <script>
+    // Navigation between sections
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.section');
       sections.forEach(section => section.classList.remove('active'));
       document.getElementById(sectionId).classList.add('active');
     }
+
+    // Calendar functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const monthYearElement = document.getElementById('currentMonthYear');
+      const prevMonthButton = document.getElementById('prevMonth');
+      const nextMonthButton = document.getElementById('nextMonth');
+      const calendarGrid = document.getElementById('calendarGrid');
+      const overlay = document.getElementById('overlay');
+      const eventPopup = document.getElementById('eventPopup');
+      const closePopupButton = document.getElementById('closePopup');
+      const popupDate = document.getElementById('popupDate');
+      const eventList = document.getElementById('eventList');
+      
+      let currentDate = new Date();
+      
+      // Boycott data - in a real app this would come from a database
+      const boycottEvents = {
+        'tesla': {
+          name: 'Tesla',
+          color: 'tesla-color',
+          dates: Array.from({ length: 30 }, (_, i) => i + 1) // All days of the month
+        },
+        'amazon': {
+          name: 'Amazon',
+          color: 'amazon-color',
+          dates: Array.from({ length: 30 }, (_, i) => i + 1) // All days of the month
+        }
+      };
+      
+      function renderCalendar() {
+        calendarGrid.innerHTML = '';
+        
+        // Add weekday headers
+        const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        weekdays.forEach(day => {
+          const dayElement = document.createElement('div');
+          dayElement.className = 'weekday';
+          dayElement.textContent = day;
+          calendarGrid.appendChild(dayElement);
+        });
+        
+        // Get first day of current month
+        const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+        const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+        
+        // Update month/year display
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                            'July', 'August', 'September', 'October', 'November', 'December'];
+        monthYearElement.textContent = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        
+        // Add days from previous month to fill first row
+        const firstDayOfWeek = firstDay.getDay();
+        const prevMonthLastDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+        
+        for (let i = 0; i < firstDayOfWeek; i++) {
+          const dayElement = createDayElement(prevMonthLastDay - firstDayOfWeek + i + 1, true);
+          calendarGrid.appendChild(dayElement);
+        }
+        
+        // Add days of current month
+        for (let i = 1; i <= lastDay.getDate(); i++) {
+          const dayElement = createDayElement(i, false);
+          
+          // Check if there are boycott events for this day
+          let hasTealaEvent = boycottEvents.tesla.dates.includes(i);
+          let hasAmazonEvent = boycottEvents.amazon.dates.includes(i);
+          
+          if (hasTealaEvent || hasAmazonEvent) {
+            const dayEvents = document.createElement('div');
+            dayEvents.className = 'day-events';
+            
+            if (hasTealaEvent) {
+              const indicator = document.createElement('span');
+              indicator.className = 'event-indicator event-tesla';
+              dayEvents.appendChild(indicator);
+            }
+            
+            if (hasAmazonEvent) {
+              const indicator = document.createElement('span');
+              indicator.className = 'event-indicator event-amazon';
+              dayEvents.appendChild(indicator);
+            }
+            
+            dayElement.appendChild(dayEvents);
+          }
+          
+          // Add click event to show popup
+          dayElement.addEventListener('click', () => {
+            showEventPopup(i);
+          });
+          
+          calendarGrid.appendChild(dayElement);
+        }
+        
+        // Add days from next month to fill last row
+        const totalDaysDisplayed = firstDayOfWeek + lastDay.getDate();
+        const remainingCells = 42 - totalDaysDisplayed; // 6 rows of 7 days
+        
+        for (let i = 1; i <= remainingCells; i++) {
+          const dayElement = createDayElement(i, true);
+          calendarGrid.appendChild(dayElement);
+        }
+      }
+      
+      function createDayElement(day, inactive) {
+        const dayElement = document.createElement('div');
+        dayElement.className = inactive ? 'day inactive' : 'day';
+        
+        const dayNumber = document.createElement('div');
+        dayNumber.className = 'day-number';
+        dayNumber.textContent = day;
+        
+        dayElement.appendChild(dayNumber);
+        return dayElement;
+      }
+      
+      function showEventPopup(day) {
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                           'July', 'August', 'September', 'October', 'November', 'December'];
+        
+        popupDate.textContent = `${monthNames[currentDate.getMonth()]} ${day}, ${currentDate.getFullYear()}`;
+        
+        // Clear previous events
+        eventList.innerHTML = '';
+        
+        // Check for Tesla event
+        if (boycottEvents.tesla.dates.includes(day)) {
+          const eventItem = document.createElement('div');
+          eventItem.className = 'event-item';
+          
+          const colorIndicator = document.createElement('div');
+          colorIndicator.className = 'company-color tesla-color';
+          colorIndicator.style.marginRight = '10px';
+          
+          const eventName = document.createElement('div');
+          eventName.textContent = 'Boycott Tesla';
+          
+          eventItem.appendChild(colorIndicator);
+          eventItem.appendChild(eventName);
+          eventList.appendChild(eventItem);
+        }
+        
+        // Check for Amazon event
+        if (boycottEvents.amazon.dates.includes(day)) {
+          const eventItem = document.createElement('div');
+          eventItem.className = 'event-item';
+          
+          const colorIndicator = document.createElement('div');
+          colorIndicator.className = 'company-color amazon-color';
+          colorIndicator.style.marginRight = '10px';
+          
+          const eventName = document.createElement('div');
+          eventName.textContent = 'Boycott Amazon';
+          
+          eventItem.appendChild(colorIndicator);
+          eventItem.appendChild(eventName);
+          eventList.appendChild(eventItem);
+        }
+        
+        // Show overlay and popup
+        overlay.style.display = 'block';
+        eventPopup.style.display = 'block';
+      }
+      
+      function closePopup() {
+        overlay.style.display = 'none';
+        eventPopup.style.display = 'none';
+      }
+      
+      // Navigate to previous month
+      prevMonthButton.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar();
+      });
+      
+      // Navigate to next month
+      nextMonthButton.addEventListener('click', () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar();
+      });
+      
+      // Close popup when clicking close button or overlay
+      closePopupButton.addEventListener('click', closePopup);
+      overlay.addEventListener('click', closePopup);
+      
+      // Initialize calendar
+      renderCalendar();
+    });
   </script>
 </body>
 </html>
